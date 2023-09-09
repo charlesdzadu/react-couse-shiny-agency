@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useContext } from 'react';
 
+import { ThemeContext } from '../../utils/context';
 import colors from '../../utils/style/colors';
 
 const StyledLink = styled(Link)`
@@ -16,10 +18,11 @@ const StyledLink = styled(Link)`
 `;
 
 function Header() {
+    const { theme } = useContext(ThemeContext);
     return (
         <nav>
             <StyledLink to="/" $isFullLink>
-                Accueil
+                Accueil ({theme})
             </StyledLink>
             <StyledLink to="/survey/1">Questionnaire</StyledLink>
             <StyledLink to="/results">Résultats</StyledLink>
